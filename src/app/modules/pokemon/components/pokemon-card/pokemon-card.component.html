@@ -5,8 +5,7 @@
     (click)="getDescription(pokemon)"
   >
     <div class="property-image">
-      <img [src]="pokemon.sprites.front_default" />
-      <img [src]="pokemon.sprites.front_shiny" />
+      <img [src]="pokemon.sprites.front_default" title="Default version." />
     </div>
 
     <div class="property-description">
@@ -15,5 +14,18 @@
   </div>
 </div>
 <ng-template #modal>
-  <span>{{ pokemonDescription }}</span>
+  <div class="description-content">
+    <img
+      [src]="selectedPokemon.sprites.front_default"
+      title="Default version."
+    />
+    <img [src]="selectedPokemon.sprites.front_shiny" title="Shiny version." />
+    <img
+      *ngIf="selectedPokemon.sprites.front_female"
+      [src]="selectedPokemon.sprites.front_female"
+      title="Female version."
+    />
+    <h5 class="title">{{ selectedPokemon.name }}</h5>
+    <p>{{ pokemonDescription }}</p>
+  </div>
 </ng-template>

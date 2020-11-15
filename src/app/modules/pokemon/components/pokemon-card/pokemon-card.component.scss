@@ -68,3 +68,12 @@ p {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+.description-content {
+  text-align: center;
+  padding: 20px;
+
+  .title {
+    padding: 10px;
+  }
+}

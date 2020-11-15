@@ -13,6 +13,7 @@ import { ModalService } from '../../../../shared/modal/modal.service';
 })
 export class PokemonCardComponent implements OnInit {
   pokemons: Pokemon[] = [];
+  selectedPokemon!: Pokemon;
   pokemonDescription = '';
   @ViewChild('modal') modalTemplateRef!: TemplateRef<any>;
   constructor(
@@ -30,6 +31,7 @@ export class PokemonCardComponent implements OnInit {
   }
 
   getDescription(pokemon: Pokemon): void {
+    this.selectedPokemon = pokemon;
     this.pokemonService
       .getPokemonData(pokemon.species.url)
       .pipe(pluck('flavor_text_entries'))
