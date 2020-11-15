@@ -1,8 +1,10 @@
 import { Pokemon } from './../../models/pokemon.model';
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
-import { Observable, Subscriber } from 'rxjs';
-import { PokemonCard } from '../../models/pokemon-card.model';
+import { pluck } from 'rxjs/operators';
+import { TemplateRef } from '@angular/core';
+import { ViewChild } from '@angular/core';
+import { ModalService } from '../../../../shared/modal/modal.service';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -12,7 +14,11 @@ import { PokemonCard } from '../../models/pokemon-card.model';
 export class PokemonCardComponent implements OnInit {
   pokemons: Pokemon[] = [];
   pokemonDescription = '';
-  constructor(private pokemonService: PokemonService) {}
+  @ViewChild('modal') modalTemplateRef!: TemplateRef<any>;
+  constructor(
+    private pokemonService: PokemonService,
+    private modalService: ModalService
+  ) {}
   ngOnInit(): void {
     this.pokemonService.getPokemons().subscribe((res) => {
       res.map((pokemon) =>
@@ -25,6 +31,11 @@ export class PokemonCardComponent implements OnInit {
 
   getDescription(pokemon: Pokemon): void {
     this.pokemonService
-      .getPokemonData(pokemon.species.url);
+      .getPokemonData(pokemon.species.url)
+      .pipe(pluck('flavor_text_entries'))
+      .subscribe((res) => {
+        this.pokemonDescription = res[1]?.flavor_text;
+        this.modalService.open(this.modalTemplateRef);
+      });
   }
 }
