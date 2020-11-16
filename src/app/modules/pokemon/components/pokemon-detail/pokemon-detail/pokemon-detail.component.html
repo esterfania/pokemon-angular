@@ -1,15 +1,21 @@
-<div *ngIf="pokemonSpecie$ | async as pokemonSpecie" class="detail-content">
+<div *ngIf="pokemon$ | async as pokemon" class="detail-content">
   <div class="image">
-    <img [src]="getImageUrl(this.pokemonId)" title="Default version." />
+    <img [src]="pokemon.image" title="Default version." />
+  </div>
+  <div class="property-versions">
+    <img [src]="pokemon.sprites.front_default" />
+    <img [src]="pokemon.sprites.front_shiny" />
+    <img [src]="pokemon.sprites.front_shiny_female" />
   </div>
   <div class="detail-description">
-    <h5 class="title">{{ pokemonSpecie.name }}</h5>
-    <!-- <p>{{ pokemonSpecie | json }}</p> -->
+    <h5 class="title">{{ pokemon.name }}</h5>
     <h6 class="title">Abilities</h6>
     <ul>
-      <li *ngFor="let abilitie of pokemonSpecie.abilities">
+      <li *ngFor="let abilitie of pokemon.abilities">
         {{ abilitie.ability.name }}
       </li>
     </ul>
+    <p>Experience: {{ pokemon.base_experience }}</p>
+    <p>Weight: {{ pokemon.weight }}</p>
   </div>
 </div>

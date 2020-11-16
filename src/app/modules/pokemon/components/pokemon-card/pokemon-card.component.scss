@@ -19,14 +19,6 @@ p {
   font-size: 12px;
 }
 
-.center {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 /* End Non-Essential  */
 
 .property-card {
@@ -45,6 +37,7 @@ p {
   -webkit-box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
   box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
   cursor: pointer;
+  margin: 15px 0px;
 }
 /* ^-- The margin bottom is necessary for the drop shadow otherwise it gets clipped in certain cases. */
 
@@ -79,4 +72,8 @@ p {
   .title {
     padding: 10px;
   }
+}
+.property-button {
+  display: flex;
+  justify-content: center;
 }

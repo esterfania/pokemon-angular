@@ -2,13 +2,14 @@
   <div class="property-card" *ngFor="let pokemon of pokemons">
     <a [routerLink]="['/pokemon', pokemon.id]">
       <div class="property-image">
-        <img [src]="getImageUrl(pokemon.id)" title="Default version." />
+        <img [src]="pokemon.image" title="Default version." />
       </div>
-
       <div class="property-description">
         <h5>{{ pokemon.name }}</h5>
       </div>
     </a>
   </div>
 </div>
-<button type="button" (click)="getMorePokemons()">More 10</button>
+<div class="property-button">
+  <button class="btn btn-blue" (click)="getMorePokemons()">More 10</button>
+</div>

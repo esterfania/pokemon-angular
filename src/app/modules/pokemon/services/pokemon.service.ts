@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { merge, Observable, Subject, Subscriber, Subscription } from 'rxjs';
-import { map, mergeAll, pluck, switchMap, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, pluck } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import { Api, PokemonCard } from '../models';
 import { Pokemon } from '../models/pokemon.model';
 
-const { pokeApi, tcgApi } = environment;
+const { pokeApi, tcgApi, pokeApiGlitch } = environment;
 @Injectable({
   providedIn: 'root',
 })
@@ -54,5 +54,8 @@ export class PokemonService {
   }
   getPokemonWithID(id: number): Observable<Pokemon> {
     return this.http.get<Pokemon>(`${pokeApi}pokemon/${id}`);
+  }
+  getPokemonsGlitchApi(id: number): Observable<any> {
+    return this.http.get<any>(`${pokeApiGlitch}${id}`);
   }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from '../../../services/pokemon.service';
 import { Observable } from 'rxjs';
+import { Pokemon } from '../../../models/pokemon.model';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -10,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class PokemonDetailComponent implements OnInit {
   pokemonId!: number;
-  pokemonSpecie$!: Observable<any>;
+  pokemon$!: Observable<Pokemon>;
   constructor(
     private activatedRoute: ActivatedRoute,
     private pokemonService: PokemonService
@@ -19,9 +21,14 @@ export class PokemonDetailComponent implements OnInit {
   ngOnInit(): void {
     this.pokemonId = this.activatedRoute.snapshot.params.id;
     if (this.pokemonId) {
-      this.pokemonSpecie$ = this.pokemonService.getPokemonWithID(
-        this.pokemonId
-      );
+      this.pokemon$ = this.pokemonService
+        .getPokemonWithID(this.pokemonId)
+        .pipe(
+          map((pokemon) => {
+            pokemon.image = this.getImageUrl(pokemon.id);
+            return pokemon;
+          })
+        );
     }
   }
   getImageUrl(id: number): string {

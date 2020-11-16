@@ -10,13 +10,13 @@ const routes: Routes = [
     component: PokemonApisComponent,
   },
   {
-    path: 'pokemons',
+    path: 'pokemon',
     component: PokemonCardComponent,
   },
   { path: 'pokemon/:id', component: PokemonDetailComponent },
   {
     path: '**',
-    redirectTo: 'pokemons',
+    redirectTo: 'pokemon',
   },
 ];
 

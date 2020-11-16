@@ -1,5 +1,5 @@
 import { Pokemon } from './../../models/pokemon.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { TemplateRef } from '@angular/core';
 import { ViewChild } from '@angular/core';
@@ -11,7 +11,7 @@ import { ViewChild } from '@angular/core';
 })
 export class PokemonCardComponent implements OnInit {
   pokemons: Pokemon[] = [];
-  limiteInitial = 30;
+  limiteInitial = 18;
   limiteDefault = 10;
   offset = 0;
   @ViewChild('modal') modalTemplateRef!: TemplateRef<any>;
@@ -27,6 +27,7 @@ export class PokemonCardComponent implements OnInit {
     this.pokemonService.getPokemons(limit, offset).subscribe((res) => {
       res.map((pokemon) =>
         pokemon.subscribe((i) => {
+          i.image = this.getImageUrl(i.id);
           this.pokemons.push(i);
           this.pokemons.sort(this.sortById);
         })
