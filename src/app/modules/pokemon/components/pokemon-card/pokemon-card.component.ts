@@ -15,6 +15,7 @@ export class PokemonCardComponent implements OnInit {
   pokemons: Pokemon[] = [];
   selectedPokemon!: Pokemon;
   pokemonDescription = '';
+  pokeImageApi = 'https://pokeres.bastionbot.org/images/pokemon/';
   @ViewChild('modal') modalTemplateRef!: TemplateRef<any>;
   constructor(
     private pokemonService: PokemonService,

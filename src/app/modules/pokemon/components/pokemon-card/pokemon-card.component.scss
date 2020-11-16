@@ -30,7 +30,7 @@ p {
 /* End Non-Essential  */
 
 .property-card {
-  height: 12em;
+  height: 15em;
   width: 14em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -51,11 +51,14 @@ p {
 /* Bottom Card Section */
 .property-image {
   text-align: center;
+  img {
+    width: 70%;
+  }
 }
 
 .property-description {
   background-color: #fafafc;
-  height: 50%;
+  height: 30%;
   width: 14em;
   position: absolute;
   bottom: 0em;

@@ -22,4 +22,5 @@ export interface Pokemon {
   types: { slot: number; type: Api };
   weight: number;
   teste: any;
+  image: string;
 }
