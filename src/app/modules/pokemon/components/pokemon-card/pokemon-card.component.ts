@@ -1,5 +1,5 @@
 import { Pokemon } from './../../models/pokemon.model';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { TemplateRef } from '@angular/core';
 import { ViewChild } from '@angular/core';
