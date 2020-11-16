@@ -13,16 +13,19 @@ import { ModalService } from '../../../../shared/modal/modal.service';
 })
 export class PokemonCardComponent implements OnInit {
   pokemons: Pokemon[] = [];
-  selectedPokemon!: Pokemon;
-  pokemonDescription = '';
-  pokeImageApi = 'https://pokeres.bastionbot.org/images/pokemon/';
+  limite = 30;
+  offset = 0;
   @ViewChild('modal') modalTemplateRef!: TemplateRef<any>;
-  constructor(
-    private pokemonService: PokemonService,
-    private modalService: ModalService
-  ) {}
+  constructor(private pokemonService: PokemonService) {}
   ngOnInit(): void {
-    this.pokemonService.getPokemons().subscribe((res) => {
+    this.getPokemons();
+  }
+
+  getImageUrl(id: number): string {
+    return this.pokemonService.getPokeImageUrl(id);
+  }
+  getPokemons(limit = this.limite, offset = this.offset): void {
+    this.pokemonService.getPokemons(limit, offset).subscribe((res) => {
       res.map((pokemon) =>
         pokemon.subscribe((i) => {
           this.pokemons.push(i);
@@ -30,15 +33,9 @@ export class PokemonCardComponent implements OnInit {
       );
     });
   }
-
-  getDescription(pokemon: Pokemon): void {
-    this.selectedPokemon = pokemon;
-    this.pokemonService
-      .getPokemonData(pokemon.species.url)
-      .pipe(pluck('flavor_text_entries'))
-      .subscribe((res) => {
-        this.pokemonDescription = res[1]?.flavor_text;
-        this.modalService.open(this.modalTemplateRef);
-      });
+  getMorePokemons(): void {
+    this.offset = this.limite;
+    this.limite += 10;
+    this.getPokemons(this.limite, this.offset);
   }
 }

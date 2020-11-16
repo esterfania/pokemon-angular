@@ -1,40 +1,14 @@
 <div *ngIf="pokemons" class="cards">
-  <div
-    class="property-card"
-    *ngFor="let pokemon of pokemons"
-    (click)="getDescription(pokemon)"
-  >
-    <div class="property-image">
-      <img
-        [src]="pokeImageApi + pokemon.id + '.png'"
-        title="Default version."
-      />
-    </div>
+  <div class="property-card" *ngFor="let pokemon of pokemons">
+    <a [routerLink]="['/pokemon', pokemon.id]">
+      <div class="property-image">
+        <img [src]="getImageUrl(pokemon.id)" title="Default version." />
+      </div>
 
-    <div class="property-description">
-      <h5>{{ pokemon.name }}</h5>
-    </div>
+      <div class="property-description">
+        <h5>{{ pokemon.name }}</h5>
+      </div>
+    </a>
   </div>
 </div>
-<ng-template #modal>
-  <div class="description-content">
-    <img
-      [src]="selectedPokemon.sprites.front_default"
-      title="Default version."
-    />
-    <img [src]="selectedPokemon.sprites.front_shiny" title="Shiny version." />
-    <img
-      *ngIf="selectedPokemon.sprites.front_female"
-      [src]="selectedPokemon.sprites.front_female"
-      title="Female version."
-    />
-    <h5 class="title">{{ selectedPokemon.name }}</h5>
-    <p>{{ pokemonDescription }}</p>
-    <h6 class="title">Abilities</h6>
-    <ul>
-      <li *ngFor="let abilitie of selectedPokemon.abilities">
-        {{ abilitie.ability.name }}
-      </li>
-    </ul>
-  </div>
-</ng-template>
+<button type="button" (click)="getMorePokemons()">More 10</button>
