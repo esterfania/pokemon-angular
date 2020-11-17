@@ -1,5 +1,10 @@
 @import "./assets/reset";
 @import "./assets/colors";
+@import url("https://fonts.googleapis.com/css2?family=Signika:wght@500&display=swap");
+
+body {
+  font-family: "Signika", sans-serif;
+}
 
 @mixin button-bg($bg) {
   background: $bg;
