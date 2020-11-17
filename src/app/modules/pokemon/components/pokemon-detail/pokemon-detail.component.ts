@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PokemonService } from '../../../services/pokemon.service';
 import { Observable } from 'rxjs';
-import { Pokemon } from '../../../models/pokemon.model';
 import { map } from 'rxjs/operators';
+
+import { Pokemon } from '../../models/pokemon.model';
+import { PokemonService } from '../../services/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -33,7 +34,7 @@ export class PokemonDetailComponent implements OnInit {
     return this.pokemonService.getPokeImageUrl(id);
   }
 
-  errorImage(pokemon: Pokemon) {
+  errorImage(pokemon: Pokemon): void {
     pokemon.image = this.pokemonService.getPokedexImageUrl(pokemon.id);
   }
 }

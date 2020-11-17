@@ -1,19 +1,17 @@
-<div *ngIf="pokemons$ | async as pokemons" class="cards">
-  <div *ngFor="let pokemon of pokemons" class="card">
-    <a [routerLink]="['/pokemon', pokemon.id]">
-      <div class="pokemon-number">
-        <span>{{ pokemon.id }}</span>
-      </div>
-      <img
-        [src]="pokemon.image"
-        [alt]="pokemon.name"
-        (error)="errorImage(pokemon)"
-      />
-      <div class="container">
-        <h4>
-          <b>{{ pokemon.name }}</b>
-        </h4>
-      </div>
-    </a>
-  </div>
+<div class="card">
+  <a [routerLink]="['/pokemon', pokemon.id]">
+    <div class="pokemon-number">
+      <span>{{ pokemon.id }}</span>
+    </div>
+    <img
+      [src]="pokemon.image"
+      [alt]="pokemon.name"
+      (error)="errorImage(pokemon)"
+    />
+    <div class="container">
+      <h4>
+        <b>{{ pokemon.name }}</b>
+      </h4>
+    </div>
+  </a>
 </div>

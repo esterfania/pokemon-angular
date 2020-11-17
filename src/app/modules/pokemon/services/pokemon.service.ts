@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, pluck, tap } from 'rxjs/operators';
+import { map, pluck } from 'rxjs/operators';
+
 import { environment } from '../../../../environments/environment';
-import { Api, PokemonCard } from '../models';
-import { Pokemon } from '../models/pokemon.model';
+import { Api, PokemonCard, Pokemon } from '../models';
 
 const { pokeApi, tcgApi, pokeApiGlitch, pokedexImageApi } = environment;
 @Injectable({
@@ -49,7 +49,7 @@ export class PokemonService {
   getPokemonsGlitchApi(id: number): string {
     return `${pokeApiGlitch}${id}.png`;
   }
-  getPokedexImageUrl(id: number) {
+  getPokedexImageUrl(id: number): string {
     return `${pokedexImageApi}${id}.png`;
   }
 }

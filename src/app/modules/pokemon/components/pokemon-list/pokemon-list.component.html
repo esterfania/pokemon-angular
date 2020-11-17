@@ -1,0 +1,4 @@
+<div *ngIf="pokemons$ | async as pokemons" class="cards">
+  <app-pokemon-card *ngFor="let pokemon of pokemons" [pokemon]="pokemon">
+  </app-pokemon-card>
+</div>

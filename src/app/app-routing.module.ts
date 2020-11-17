@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { PokemonApisComponent } from './modules/pokemon/components/pokemon-apis/pokemon-apis.component';
-import { PokemonCardComponent } from './modules/pokemon/components/pokemon-card/pokemon-card.component';
-import { PokemonDetailComponent } from './modules/pokemon/components/pokemon-detail/pokemon-detail/pokemon-detail.component';
+import { PokemonDetailComponent } from './modules/pokemon/components/pokemon-detail/pokemon-detail.component';
+import { PokemonListComponent } from './modules/pokemon/components/pokemon-list/pokemon-list.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'pokemon',
-    component: PokemonCardComponent,
+    component: PokemonListComponent,
   },
   { path: 'pokemon/:id', component: PokemonDetailComponent },
   {
