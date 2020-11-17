@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 
 import { Pokemon } from '../../models/pokemon.model';
 import { PokemonService } from '../../services/pokemon.service';
+import { PokemonImageService } from '../../services/pokemon-image.service';
 
 @Component({
   selector: 'app-pokemon-list',

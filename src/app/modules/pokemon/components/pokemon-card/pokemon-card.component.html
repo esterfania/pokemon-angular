@@ -3,11 +3,13 @@
     <div class="pokemon-number">
       <span>{{ pokemon.id }}</span>
     </div>
-    <img
-      [src]="pokemon.image"
-      [alt]="pokemon.name"
-      (error)="errorImage(pokemon)"
-    />
+    <div class="image">
+      <img
+        [src]="pokemon.image"
+        [alt]="pokemon.name"
+        (error)="errorImage(pokemon)"
+      />
+    </div>
     <div class="container">
       <h4>
         <b>{{ pokemon.name }}</b>

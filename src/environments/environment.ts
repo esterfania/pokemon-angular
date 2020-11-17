@@ -5,10 +5,8 @@
 export const environment = {
   production: false,
   pokeApi: 'https://pokeapi.co/api/v2/',
-  tcgApi: 'https://api.pokemontcg.io/v1/',
-  pokeImageApi: 'https://pokeres.bastionbot.org/images/pokemon/',
-  pokeApiGlitch: 'https://pokeapi.glitch.me/v1/pokemon/',
-  pokedexImageApi: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/',
+  pokeApiImage:
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/',
 };
 
 /*

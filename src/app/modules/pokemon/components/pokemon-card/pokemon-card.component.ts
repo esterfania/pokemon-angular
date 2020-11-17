@@ -1,7 +1,7 @@
 import { Pokemon } from './../../models/pokemon.model';
 import { Component, Input } from '@angular/core';
 
-import { PokemonService } from '../../services/pokemon.service';
+import { PokemonImageService } from '../../services/pokemon-image.service';
 @Component({
   selector: 'app-pokemon-card',
   templateUrl: './pokemon-card.component.html',
@@ -9,10 +9,10 @@ import { PokemonService } from '../../services/pokemon.service';
 })
 export class PokemonCardComponent {
   @Input() pokemon!: Pokemon;
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonImageService: PokemonImageService) {}
 
   getImageUrl(id: number): string {
-    return this.pokemonService.getPokeImageUrl(id);
+    return this.pokemonImageService.getPokeImageUrl(id);
   }
 
   errorImage(pokemon: Pokemon): void {

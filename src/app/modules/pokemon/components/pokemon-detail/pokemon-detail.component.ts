@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { Pokemon } from '../../models/pokemon.model';
 import { PokemonService } from '../../services/pokemon.service';
+import { PokemonImageService } from '../../services/pokemon-image.service';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -24,17 +25,11 @@ export class PokemonDetailComponent implements OnInit {
     if (this.pokemonId) {
       this.pokemon$ = this.pokemonService.getPokemonWithID(this.pokemonId).pipe(
         map((pokemon) => {
-          pokemon.image = this.getImageUrl(pokemon.id);
+          pokemon.image =
+            pokemon.sprites.other['official-artwork']?.front_default;
           return pokemon;
         })
       );
     }
-  }
-  getImageUrl(id: number): string {
-    return this.pokemonService.getPokeImageUrl(id);
-  }
-
-  errorImage(pokemon: Pokemon): void {
-    pokemon.image = this.pokemonService.getPokedexImageUrl(pokemon.id);
   }
 }

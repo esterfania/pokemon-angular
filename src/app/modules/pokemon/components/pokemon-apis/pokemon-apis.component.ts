@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Api } from '../../models/apis.model';
-import { PokemonService } from '../../services/pokemon.service';
+import { PokemonApiService } from '../../services/pokemon-apis.service';
 
 @Component({
   selector: 'app-pokemon-apis',
@@ -10,9 +10,9 @@ import { PokemonService } from '../../services/pokemon.service';
   styleUrls: ['./pokemon-apis.component.scss'],
 })
 export class PokemonApisComponent implements OnInit {
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonApiService: PokemonApiService) {}
   apis$: Observable<Api[]> = new Observable<Api[]>();
   ngOnInit(): void {
-    this.apis$ = this.pokemonService.getApis();
+    this.apis$ = this.pokemonApiService.getApis();
   }
 }
