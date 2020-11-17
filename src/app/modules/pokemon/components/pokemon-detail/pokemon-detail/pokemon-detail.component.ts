@@ -21,17 +21,19 @@ export class PokemonDetailComponent implements OnInit {
   ngOnInit(): void {
     this.pokemonId = this.activatedRoute.snapshot.params.id;
     if (this.pokemonId) {
-      this.pokemon$ = this.pokemonService
-        .getPokemonWithID(this.pokemonId)
-        .pipe(
-          map((pokemon) => {
-            pokemon.image = this.getImageUrl(pokemon.id);
-            return pokemon;
-          })
-        );
+      this.pokemon$ = this.pokemonService.getPokemonWithID(this.pokemonId).pipe(
+        map((pokemon) => {
+          pokemon.image = this.getImageUrl(pokemon.id);
+          return pokemon;
+        })
+      );
     }
   }
   getImageUrl(id: number): string {
     return this.pokemonService.getPokeImageUrl(id);
+  }
+
+  errorImage(pokemon: Pokemon) {
+    pokemon.image = this.pokemonService.getPokedexImageUrl(pokemon.id);
   }
 }

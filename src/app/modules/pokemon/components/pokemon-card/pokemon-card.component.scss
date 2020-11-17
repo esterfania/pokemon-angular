@@ -1,79 +1,31 @@
-body {
-  background-color: #f2f2f2;
-  font-family: "RobotoDraft", "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-h5 {
-  margin: 0px;
-  font-size: 1.4em;
-  font-weight: 700;
-}
-
-p {
-  font-size: 12px;
-}
-
-/* End Non-Essential  */
-
-.property-card {
-  height: 15em;
-  width: 14em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  -webkit-box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
-  box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
-  cursor: pointer;
-  margin: 15px 0px;
-}
-/* ^-- The margin bottom is necessary for the drop shadow otherwise it gets clipped in certain cases. */
-
-/* Bottom Card Section */
-.property-image {
-  text-align: center;
-  img {
-    width: 70%;
-  }
-}
-
-.property-description {
-  background-color: #fafafc;
-  height: 30%;
-  width: 14em;
-  position: absolute;
-  bottom: 0em;
-  padding: 0.5em 1em;
-  text-align: center;
-}
-
 .cards {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
-
-.description-content {
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 9rem;
+  height: 12rem;
+  margin-top: 0.5rem;
   text-align: center;
-  padding: 20px;
-
-  .title {
-    padding: 10px;
+  border-radius: 5px;
+  .pokemon-number {
+    float: left;
+    padding: 0.5rem;
+  }
+  a {
+    text-decoration: none;
+  }
+  img {
+    width: 85%;
+  }
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   }
 }
-.property-button {
-  display: flex;
-  justify-content: center;
+.container {
+  padding: 0.5rem 0rem;
+  vertical-align: bottom;
 }

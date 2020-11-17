@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { TemplateRef } from '@angular/core';
 import { ViewChild } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -10,8 +12,8 @@ import { ViewChild } from '@angular/core';
   styleUrls: ['./pokemon-card.component.scss'],
 })
 export class PokemonCardComponent implements OnInit {
-  pokemons: Pokemon[] = [];
-  limiteInitial = 18;
+  pokemons$!: Observable<Pokemon[]>;
+  limiteInitial = 1000;
   limiteDefault = 10;
   offset = 0;
   @ViewChild('modal') modalTemplateRef!: TemplateRef<any>;
@@ -23,23 +25,18 @@ export class PokemonCardComponent implements OnInit {
   getImageUrl(id: number): string {
     return this.pokemonService.getPokeImageUrl(id);
   }
-  getPokemons(limit = this.limiteInitial, offset = this.offset): void {
-    this.pokemonService.getPokemons(limit, offset).subscribe((res) => {
-      res.map((pokemon) =>
-        pokemon.subscribe((i) => {
-          i.image = this.getImageUrl(i.id);
-          this.pokemons.push(i);
-          this.pokemons.sort(this.sortById);
+  getPokemons(): void {
+    this.pokemons$ = this.pokemonService.getPokemons().pipe(
+      map((pokemons) =>
+        pokemons.map((pokemon) => {
+          pokemon.image = `assets/data/pokemon/${pokemon.id}.png`;
+          return pokemon;
         })
-      );
-    });
+      )
+    );
   }
-  getMorePokemons(): void {
-    this.offset = this.limiteInitial;
-    this.limiteInitial += 10;
-    this.getPokemons(this.limiteDefault, this.offset);
-  }
-  sortById(a: Pokemon, b: Pokemon): number {
-    return a.id - b.id;
+
+  errorImage(pokemon: Pokemon): void {
+    pokemon.image = this.getImageUrl(pokemon.id);
   }
 }

@@ -1,6 +1,10 @@
 <div *ngIf="pokemon$ | async as pokemon" class="detail-content">
   <div class="image">
-    <img [src]="pokemon.image" title="Default version." />
+    <img
+      [src]="pokemon.image"
+      (error)="errorImage(pokemon)"
+      title="Default version."
+    />
   </div>
   <div class="property-versions">
     <img [src]="pokemon.sprites.front_default" />

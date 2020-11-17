@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, pluck } from 'rxjs/operators';
+import { map, pluck, tap } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import { Api, PokemonCard } from '../models';
 import { Pokemon } from '../models/pokemon.model';
 
-const { pokeApi, tcgApi, pokeApiGlitch } = environment;
+const { pokeApi, tcgApi, pokeApiGlitch, pokedexImageApi } = environment;
 @Injectable({
   providedIn: 'root',
 })
@@ -29,19 +29,10 @@ export class PokemonService {
     return this.http.get<PokemonCard[]>(`${tcgApi}cards`).pipe(pluck('cards'));
   }
 
-  getPokemons(
-    limit: number,
-    offset: number
-  ): Observable<Observable<Pokemon>[]> {
+  getPokemons(): Observable<Pokemon[]> {
     return this.http
-      .get<any>(`${pokeApi}pokemon?limit=${limit}&offset=${offset}`)
-      .pipe(pluck('results'))
-      .pipe(map((response) => Object.values(response) as Api[]))
-      .pipe(
-        map((items) => {
-          return items.map((item) => this.getPokemonData(item.url));
-        })
-      );
+      .get<Pokemon[]>('assets/data/pokemon.json')
+      .pipe(pluck('pokemon'));
   }
   getPokemonSpecies(id: number): any {
     return this.http.get<any>(`${pokeApi}pokemon-species/${id}`);
@@ -55,7 +46,10 @@ export class PokemonService {
   getPokemonWithID(id: number): Observable<Pokemon> {
     return this.http.get<Pokemon>(`${pokeApi}pokemon/${id}`);
   }
-  getPokemonsGlitchApi(id: number): Observable<any> {
-    return this.http.get<any>(`${pokeApiGlitch}${id}`);
+  getPokemonsGlitchApi(id: number): string {
+    return `${pokeApiGlitch}${id}.png`;
+  }
+  getPokedexImageUrl(id: number) {
+    return `${pokedexImageApi}${id}.png`;
   }
 }

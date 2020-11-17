@@ -8,6 +8,7 @@ export const environment = {
   tcgApi: 'https://api.pokemontcg.io/v1/',
   pokeImageApi: 'https://pokeres.bastionbot.org/images/pokemon/',
   pokeApiGlitch: 'https://pokeapi.glitch.me/v1/pokemon/',
+  pokedexImageApi: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/',
 };
 
 /*

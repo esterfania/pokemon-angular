@@ -1,15 +1,19 @@
-<div *ngIf="pokemons" class="cards">
-  <div class="property-card" *ngFor="let pokemon of pokemons">
+<div *ngIf="pokemons$ | async as pokemons" class="cards">
+  <div *ngFor="let pokemon of pokemons" class="card">
     <a [routerLink]="['/pokemon', pokemon.id]">
-      <div class="property-image">
-        <img [src]="pokemon.image" title="Default version." />
+      <div class="pokemon-number">
+        <span>{{ pokemon.id }}</span>
       </div>
-      <div class="property-description">
-        <h5>{{ pokemon.name }}</h5>
+      <img
+        [src]="pokemon.image"
+        [alt]="pokemon.name"
+        (error)="errorImage(pokemon)"
+      />
+      <div class="container">
+        <h4>
+          <b>{{ pokemon.name }}</b>
+        </h4>
       </div>
     </a>
   </div>
-</div>
-<div class="property-button">
-  <button class="btn btn-blue" (click)="getMorePokemons()">More 10</button>
 </div>
