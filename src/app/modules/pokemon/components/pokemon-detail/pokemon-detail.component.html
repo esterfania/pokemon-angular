@@ -1,21 +1,17 @@
-<div *ngIf="pokemon$ | async as pokemon" class="detail-content">
+<div
+  [class]="pokemon.color"
+  *ngIf="pokemon$ | async as pokemon"
+  class="detail-content"
+>
   <div class="image">
-    <img
-      [src]="pokemon.image"
-      title="Default version."
-    />
-  </div>
-  <div class="property-versions">
-    <img [src]="pokemon.sprites.front_default" />
-    <img [src]="pokemon.sprites.front_shiny" />
-    <img [src]="pokemon.sprites.front_shiny_female" />
+    <img [src]="pokemon.image" title="Default version." />
   </div>
   <div class="detail-description">
     <h5 class="title">{{ pokemon.name }}</h5>
     <h6 class="title">Abilities</h6>
     <ul>
       <li *ngFor="let abilitie of pokemon.abilities">
-        {{ abilitie.ability.name }}
+        {{ abilitie }}
       </li>
     </ul>
     <p>Experience: {{ pokemon.base_experience }}</p>

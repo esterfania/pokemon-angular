@@ -23,10 +23,8 @@ export class PokemonDetailComponent implements OnInit {
   ngOnInit(): void {
     this.pokemonId = this.activatedRoute.snapshot.params.id;
     if (this.pokemonId) {
-      this.pokemon$ = this.pokemonService.getPokemonWithID(this.pokemonId).pipe(
+      this.pokemon$ = this.pokemonService.getPokemonWithId(this.pokemonId).pipe(
         map((pokemon) => {
-          pokemon.image =
-            pokemon.sprites.other['official-artwork']?.front_default;
           return pokemon;
         })
       );

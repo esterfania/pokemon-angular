@@ -19,7 +19,7 @@
     height: 100px;
   }
   &:hover {
-    background-color: rgba(187, 220, 224, 0.589);
+    background-color: lighten(rgb(181, 194, 196), 50%);
     box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2);
   }
 }

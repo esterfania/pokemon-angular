@@ -1,5 +1,5 @@
 import { Pokemon } from './../../models/pokemon.model';
-import { Component, Input } from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
 
 import { PokemonImageService } from '../../services/pokemon-image.service';
 @Component({
