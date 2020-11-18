@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { Pokemon } from '../../models/pokemon.model';
 import { PokemonService } from '../../services/pokemon.service';
@@ -23,11 +22,7 @@ export class PokemonDetailComponent implements OnInit {
   ngOnInit(): void {
     this.pokemonId = this.activatedRoute.snapshot.params.id;
     if (this.pokemonId) {
-      this.pokemon$ = this.pokemonService.getPokemonWithId(this.pokemonId).pipe(
-        map((pokemon) => {
-          return pokemon;
-        })
-      );
+      this.pokemon$ = this.pokemonService.getPokemonWithId(this.pokemonId);
     }
   }
 }

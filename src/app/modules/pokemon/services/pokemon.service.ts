@@ -25,7 +25,7 @@ export class PokemonService {
   }
 
   getPokemonWithId(id: number): Observable<Pokemon> {
-    return this.http.get<Pokemon>(`${localApi}pokemon/${id}`).pipe(
+    return this.http.get<Pokemon>(`${localApi}pokedex/${id}`).pipe(
       map((pokemon: Pokemon) => {
         pokemon.image = this.pokemonImageService.getPokeImageUrl(pokemon.id);
         return pokemon;
