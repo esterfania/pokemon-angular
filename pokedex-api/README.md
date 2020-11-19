@@ -1,7 +1,10 @@
 ## Json server
 
 Run `npm start`. Navigate to `http://localhost:3000/`.
-Apis:
 
-- pokedex: http://localhost:3000/pokedex
-- pokemon-color: http://localhost:3000/pokemon-color
+Resources
+- /pokedex 893x
+- /pokemon-color 893x
+To access and modify resources, you can use any HTTP method:
+
+"GET" "POST" "PUT" "PATCH" "DELETE" "OPTIONS"
