@@ -1,3 +1,4 @@
+import { tap } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -18,13 +19,16 @@ export class PokemonListComponent implements OnInit {
     this.getPokemons();
   }
   getPokemons(): void {
-    this.pokemons$ = this.pokemonService.getPokemons().pipe(
-      map((pokemons) =>
-        pokemons.map((pokemon) => {
-          pokemon.image = `assets/data/pokemon/${pokemon.id}.png`;
-          return pokemon;
-        })
+    this.pokemons$ = this.pokemonService
+      .getPokemons()
+      .pipe(
+        map((pokemons) =>
+          pokemons.map((pokemon) => {
+            pokemon.image = `assets/data/pokemon/${pokemon.id}.png`;
+            return pokemon;
+          })
+        )
       )
-    );
+      .pipe(tap((res) => console.log(res)));
   }
 }

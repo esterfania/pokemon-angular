@@ -19,9 +19,9 @@ export interface Pokemon {
   species: Api;
   sprites: Sprite;
   stats: any[];
-  types: { slot: number; type: Api };
+  type_1: string;
+  type_2: string;
   weight: number;
-  teste: any;
   image: string;
   color: string | null;
 }

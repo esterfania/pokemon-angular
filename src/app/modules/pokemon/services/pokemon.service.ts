@@ -7,7 +7,7 @@ import { environment } from '../../../../environments/environment';
 import { Pokemon } from '../models';
 import { PokemonImageService } from './pokemon-image.service';
 
-const {localApi } = environment;
+const { localApi, pokeApi } = environment;
 @Injectable({
   providedIn: 'root',
 })
@@ -18,9 +18,7 @@ export class PokemonService {
   ) {}
 
   getPokemons(): Observable<Pokemon[]> {
-    return this.http
-      .get<Pokemon[]>('assets/data/pokemon.json')
-      .pipe(pluck('pokemon'));
+    return this.http.get<Pokemon[]>(`${localApi}pokemon`);
   }
 
   getPokemonWithId(id: number): Observable<Pokemon> {
@@ -31,4 +29,12 @@ export class PokemonService {
       })
     );
   }
+  // getPokemonWithId(id: number): Observable<Pokemon> {
+  //   return this.http.get<Pokemon>(`${pokeApi}pokemon/${id}`).pipe(
+  //     map((pokemon: Pokemon) => {
+  //       pokemon.image = this.pokemonImageService.getPokeImageUrl(pokemon.id);
+  //       return pokemon;
+  //     })
+  //   );
+  //}
 }

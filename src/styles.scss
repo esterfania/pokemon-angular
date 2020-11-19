@@ -1,9 +1,13 @@
 @import "./assets/helpers/colors";
 @import "./assets/helpers/reset";
-@import url("https://fonts.googleapis.com/css2?family=Signika:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400&display=swap");
 
 body {
-  font-family: "Signika", sans-serif;
+  font-family: "Lato", sans-serif;
+  background: #efefbb;
+  background: -webkit-linear-gradient(to right, #d4d3dd, #efefbb);
+  background: linear-gradient(to right, #d4d3dd, #efefbb);
 }
 
 @mixin button-bg($bg) {
