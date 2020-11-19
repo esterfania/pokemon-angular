@@ -1,9 +1,17 @@
 .header {
   display: flex;
   justify-content: center;
-  padding: 15px;
-  background: black;
+  flex-direction: column;
   color: white;
+  background-color: black;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   font-size: 2rem;
+  nav {
+    padding: 12px;
+    text-align: center;
+    span {
+      cursor: pointer;
+      outline: none;
+    }
+  }
 }
