@@ -5,10 +5,9 @@ import { map, pluck } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
 import { Pokemon } from '../models';
-import { Ability } from '../models/ability.model';
 import { PokemonImageService } from './pokemon-image.service';
 
-const { pokeApi, localApi } = environment;
+const {localApi } = environment;
 @Injectable({
   providedIn: 'root',
 })
