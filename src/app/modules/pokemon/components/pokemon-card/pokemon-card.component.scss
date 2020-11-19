@@ -9,17 +9,19 @@
   .pokemon-number span {
     float: left;
     padding: 0.5rem;
+    color: gray;
   }
   a {
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    color: black;
   }
   img {
     height: 100px;
   }
   &:hover {
-    background-color: lighten(rgb(181, 194, 196), 50%);
+    background-color: lighten(rgba(238, 228, 228, 0.329), 50%);
     box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2);
   }
 }
