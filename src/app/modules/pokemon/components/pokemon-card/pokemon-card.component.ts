@@ -21,11 +21,19 @@ export class PokemonCardComponent {
     pokemon.image = this.getImageUrl(pokemon.id);
   }
 
-  setPokemonColor(color1: string, color2: string): any {
+  setPokemonCardColor(color1: string, color2: string): any {
     color1 = this.colorsEnum[color1] ?? 'white';
     color2 = this.colorsEnum[color2] ?? color1;
     const style = {
       'background-image': `linear-gradient(${color1}, ${color2})`,
+    };
+    return style;
+  }
+  setPokemonTypeColor(color: string): any {
+    color = this.colorsEnum[color] ?? 'white';
+    const style = {
+      background: color,
+      'box-shadow': `0 0 20px rgba(255, 255, 255, 0.822)`,
     };
     return style;
   }

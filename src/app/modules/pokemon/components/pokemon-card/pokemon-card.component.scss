@@ -38,21 +38,38 @@ h1 {
     text-align: center;
   }
   .name {
-    margin: 15px 0 7px;
+    margin: 15px 0 10px;
     letter-spacing: 1px;
   }
   .number {
     background-color: rgba(0, 0, 0, 0.1);
+    border: 0.5px solid rgba(128, 128, 128, 0.603);
     border-radius: 10px;
     font-size: 0.8em;
     padding: 5px 10px;
+    border: 0.5px solid white;
   }
   .info {
     margin-top: 20px;
   }
+  .img-container img {
+    margin-top: 20px;
+    max-width: 90%;
+  }
 }
-
-.pokemon .img-container img {
-  margin-top: 20px;
-  max-width: 90%;
+.icon {
+  border-radius: 100%;
+  height: 35px;
+  width: 35px;
+  margin: auto;
+  transition: 200ms all;
+  border: 0.5px solid rgba(255, 255, 255, 0.822);
+  img {
+    height: 60%;
+    width: 60%;
+    margin: 20%;
+  }
+}
+.wrapper {
+  display: flex;
 }

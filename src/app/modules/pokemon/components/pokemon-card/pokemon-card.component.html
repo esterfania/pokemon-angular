@@ -1,5 +1,8 @@
 <div id="poke_container" class="poke-container">
-  <div class="pokemon" [ngStyle]="setPokemonColor(pokemon.type_1, pokemon.type_2)">
+  <div
+    class="pokemon"
+    [ngStyle]="setPokemonCardColor(pokemon.type_1, pokemon.type_2)"
+  >
     <a [routerLink]="['/pokemon', pokemon.id]">
       <div class="img-container">
         <img [src]="pokemon.image" alt="pokemon.name" />
@@ -7,7 +10,24 @@
       <div class="info">
         <span class="number">#{{ pokemon.id }}</span>
         <h3 class="name">{{ pokemon.name }}</h3>
-        <small class="type">Type: <span>{{pokemon.type_1}}</span></small>
+        <div class="wrapper">
+          <div class="icon" [ngStyle]="setPokemonTypeColor(pokemon.type_1)">
+            <img
+              src="../../../../../assets/icons/{{ pokemon.type_1 }}.svg"
+              [title]="pokemon.type_1"
+            />
+          </div>
+          <div
+            class="icon"
+            *ngIf="pokemon.type_2"
+            [ngStyle]="setPokemonTypeColor(pokemon.type_2)"
+          >
+            <img
+              src="../../../../../assets/icons/{{ pokemon.type_2 }}.svg"
+              [title]="pokemon.type_2"
+            />
+          </div>
+        </div>
       </div>
     </a>
   </div>
