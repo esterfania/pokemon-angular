@@ -20,15 +20,6 @@ export class PokemonListComponent implements OnInit {
   }
   getPokemons(): void {
     this.pokemons$ = this.pokemonService
-      .getPokemons()
-      .pipe(
-        map((pokemons) =>
-          pokemons.map((pokemon) => {
-            pokemon.image = `assets/data/pokemon/${pokemon.id}.png`;
-            return pokemon;
-          })
-        )
-      )
-      .pipe(tap((res) => console.log(res)));
+      .getPokemons();
   }
 }
