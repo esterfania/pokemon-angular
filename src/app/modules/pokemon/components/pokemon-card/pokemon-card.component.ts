@@ -33,7 +33,7 @@ export class PokemonCardComponent {
     color = this.colorsEnum[color] ?? 'white';
     const style = {
       background: color,
-      'box-shadow': `0 0 20px rgba(255, 255, 255, 0.822)`,
+      'box-shadow': '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
     };
     return style;
   }

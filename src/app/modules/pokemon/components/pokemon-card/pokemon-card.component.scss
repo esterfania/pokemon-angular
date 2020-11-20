@@ -43,11 +43,10 @@ h1 {
   }
   .number {
     background-color: rgba(0, 0, 0, 0.1);
-    border: 0.5px solid rgba(128, 128, 128, 0.603);
     border-radius: 10px;
     font-size: 0.8em;
     padding: 5px 10px;
-    border: 0.5px solid white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
   .info {
     margin-top: 20px;
@@ -63,7 +62,7 @@ h1 {
   width: 35px;
   margin: auto;
   transition: 200ms all;
-  border: 0.5px solid rgba(255, 255, 255, 0.822);
+  //border: 0.5px solid rgba(255, 255, 255, 0.822);
   img {
     height: 60%;
     width: 60%;
