@@ -16,6 +16,6 @@ Acesse o diretório **/pokedex-api**, execute os comandos:
 
 ## Ambiente Angular
 
-Para executar o Angular, em outro terminal execute:
--`ng serve` 
+Para executar o Angular, acesse pasta raiz em outro terminal execute:
+- `ng serve` 
 - Navegue até `http://localhost:4200/`.
