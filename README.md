@@ -10,10 +10,12 @@ Você consegue acessá-lo no endereço: https://rotomdex.netlify.app/
 
 ## Pokédex Api
 Acesse o diretório **/pokedex-api**, execute os comandos:
-- *npm i* 
-- *npm start*
-O api estará executando no endereço http://localhost:3000.
+- `npm i` 
+- `npm start`
+- Navegue até http://localhost:3000.
 
 ## Ambiente Angular
 
-Em outra instância do terminal execute `ng serve` e navegue até `http://localhost:4200/`.
+Para executar o Angular, em outro terminal execute:
+-`ng serve` 
+- Navegue até `http://localhost:4200/`.
