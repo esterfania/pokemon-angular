@@ -1,0 +1,10 @@
+<div class="search__container">
+  <input
+    class="search__input"
+    type="text"
+    placeholder="search..."
+    alt="search"
+    (keyup)="debounce.next($event.target)"
+    [value]="value"
+  />
+</div>

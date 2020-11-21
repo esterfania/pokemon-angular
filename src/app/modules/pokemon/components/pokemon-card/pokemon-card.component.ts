@@ -1,4 +1,4 @@
-import { ColorsEnum } from '../../enums/color.enum';
+import { TypesEnum, Color } from '../../enums/color.enum';
 import { Pokemon } from './../../models/pokemon.model';
 import { Component, Input, TemplateRef } from '@angular/core';
 
@@ -10,7 +10,8 @@ import { PokemonImageService } from '../../services/pokemon-image.service';
 })
 export class PokemonCardComponent {
   @Input() pokemon!: Pokemon;
-  colorsEnum = ColorsEnum;
+  typeEnum = TypesEnum;
+  color = new Color();
   constructor(private pokemonImageService: PokemonImageService) {}
 
   getImageUrl(id: number): string {
@@ -22,15 +23,15 @@ export class PokemonCardComponent {
   }
 
   setPokemonCardColor(color1: string, color2: string): any {
-    color1 = this.colorsEnum[color1] ?? 'white';
-    color2 = this.colorsEnum[color2] ?? color1;
+    color1 = this.typeEnum[color1] ?? 'white';
+    color2 = this.typeEnum[color2] ?? color1;
     const style = {
       'background-image': `linear-gradient(${color1}, ${color2})`,
     };
     return style;
   }
   setPokemonTypeColor(color: string): any {
-    color = this.colorsEnum[color] ?? 'white';
+    color = this.typeEnum[color] ?? 'white';
     const style = {
       background: color,
       'box-shadow': '0 4px 8px 0 rgba(0, 0, 0, 0.2)',

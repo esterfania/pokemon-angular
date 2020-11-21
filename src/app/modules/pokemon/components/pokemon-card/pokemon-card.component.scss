@@ -11,11 +11,18 @@ h1 {
   justify-content: center;
   margin: 0 auto;
   max-width: 1200px;
+  margin: 2px 2px;
+  border-radius: 32px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.37);
+  &:hover {
+    box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+  }
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 }
 
 .pokemon {
   border-radius: 20px;
-  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
   margin: 10px;
   padding: 20px;
   text-align: center;
@@ -24,11 +31,6 @@ h1 {
     display: flex;
     flex-direction: column;
     color: black;
-  }
-
-  &:hover {
-    box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2);
-    transform: scale(1.1);
   }
   .img-container {
     background-color: rgba(255, 255, 255, 0.6);
@@ -62,7 +64,6 @@ h1 {
   width: 35px;
   margin: auto;
   transition: 200ms all;
-  //border: 0.5px solid rgba(255, 255, 255, 0.822);
   img {
     height: 60%;
     width: 60%;

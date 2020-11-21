@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, pluck } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
 import { Pokemon } from '../models';
@@ -20,9 +20,10 @@ export class PokemonService {
 
   getPokemons(): Observable<Pokemon[]> {
     return this.http
-      .get<Pokemon[]>(`${localApi}pokemon`)
+      .get<Pokemon[]>(`../../../../assets/data/json/pokemon.json`)
+      .pipe(pluck('pokemon'))
       .pipe(
-        map((pokemons) =>
+        map((pokemons: Pokemon[]) =>
           pokemons.map((pokemon: Pokemon) =>
             this.setDetailsPokemon(
               `assets/data/pokemon/${pokemon.id}.png`,
@@ -45,14 +46,7 @@ export class PokemonService {
         )
       );
   }
-  // getPokemonWithId(id: number): Observable<Pokemon> {
-  //   return this.http.get<Pokemon>(`${pokeApi}pokemon/${id}`).pipe(
-  //     map((pokemon: Pokemon) => {
-  //       pokemon.image = this.pokemonImageService.getPokeImageUrl(pokemon.id);
-  //       return pokemon;
-  //     })
-  //   );
-  //}
+
   private setDetailsPokemon(imageUrl: string, pokemon: Pokemon): Pokemon {
     pokemon.image = imageUrl;
     pokemon.name = capitalize(pokemon.name);

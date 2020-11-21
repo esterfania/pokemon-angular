@@ -1,6 +1,6 @@
 import { tap } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscriber, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Pokemon } from '../../models/pokemon.model';
@@ -12,14 +12,24 @@ import { PokemonImageService } from '../../services/pokemon-image.service';
   templateUrl: './pokemon-list.component.html',
   styleUrls: ['./pokemon-list.component.scss'],
 })
-export class PokemonListComponent implements OnInit {
-  pokemons$!: Observable<Pokemon[]>;
+export class PokemonListComponent implements OnInit, OnDestroy {
+  pokemons!: Pokemon[];
+  filter = '';
+  subscription = new Subscription();
   constructor(private pokemonService: PokemonService) {}
+
   ngOnInit(): void {
     this.getPokemons();
   }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
   getPokemons(): void {
-    this.pokemons$ = this.pokemonService
-      .getPokemons();
+    this.subscription = this.pokemonService
+      .getPokemons()
+      .subscribe((res) => (this.pokemons = res));
+  }
+  setFilterValue(event: any): void {
+    this.filter = event as string;
   }
 }

@@ -1,4 +1,4 @@
-export enum ColorsEnum {
+export enum TypesEnum {
   normal = '#A8A77A',
   fire = '#EE8130',
   water = '#6390F0',
@@ -17,4 +17,17 @@ export enum ColorsEnum {
   dark = '#705746',
   steel = '#B7B7CE',
   fairy = '#D685AD',
+}
+
+export class Color {
+  '1' = 'black';
+  '2' = 'blue';
+  '3' = 'brown';
+  '4' = 'gray';
+  '5' = 'green';
+  '6' = 'pink';
+  '7' = 'purple';
+  '8' = 'red';
+  '9' = 'white';
+  '10' = 'yellow';
 }
