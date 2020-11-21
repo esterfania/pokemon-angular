@@ -3,7 +3,7 @@
     class="pokemon"
     [ngStyle]="setPokemonCardColor(pokemon.type_1, pokemon.type_2)"
   >
-    <a [routerLink]="['/pokemon', pokemon.id]">
+    <a [routerLink]="[pokemon.id]">
       <div class="img-container">
         <img [src]="pokemon.image" alt="pokemon.name" />
       </div>

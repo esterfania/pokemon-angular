@@ -4,20 +4,21 @@ import { Routes, RouterModule } from '@angular/router';
 import { PokemonApisComponent } from './modules/pokemon/components/pokemon-apis/pokemon-apis.component';
 import { PokemonDetailComponent } from './modules/pokemon/components/pokemon-detail/pokemon-detail.component';
 import { PokemonListComponent } from './modules/pokemon/components/pokemon-list/pokemon-list.component';
+import { Pokemon } from './modules/pokemon/models/pokemon.model';
 
 const routes: Routes = [
   {
     path: 'pokemon-api-list',
     component: PokemonApisComponent,
   },
+  { path: ':id', component: PokemonDetailComponent },
   {
-    path: 'pokemon',
-    component: PokemonListComponent,
+    path: '',
+    component: PokemonListComponent
   },
-  { path: 'pokemon/:id', component: PokemonDetailComponent },
   {
     path: '**',
-    redirectTo: 'pokemon',
+    redirectTo: '',
   },
 ];
 
