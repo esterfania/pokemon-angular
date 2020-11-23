@@ -4,7 +4,7 @@ import { GameIndex } from './game-index.model';
 import { Sprite } from './sprite.model';
 
 export interface Pokemon {
-  abilities: string[];
+  abilities: Ability[];
   base_experience: number;
   forms: Api;
   game_indices: GameIndex[];

@@ -36,7 +36,7 @@ export class PokemonService {
 
   getPokemonWithId(id: number): Observable<Pokemon> {
     return this.http
-      .get<Pokemon>(`${localApi}pokedex/${id}`)
+      .get<Pokemon>(`${pokeApi}pokemon/${id}`)
       .pipe(
         map((pokemon: Pokemon) =>
           this.setDetailsPokemon(
