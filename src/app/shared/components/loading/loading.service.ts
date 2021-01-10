@@ -1,31 +1,25 @@
-import { Injectable, OnInit } from "@angular/core";
-import { Subject } from "rxjs";
-import { LoadingType } from "./loading-type";
-import { startWith } from "rxjs/operators";
+import { Injectable, OnInit } from '@angular/core';
+import { Subject, Observable } from 'rxjs';
+import { LoadingType } from './loading-type';
+import { startWith } from 'rxjs/operators';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
-export class LoadingService implements OnInit {
+export class LoadingService {
+  loadingSubject = new Subject<LoadingType>();
 
-    loadingSubject = new Subject<LoadingType>();
+  getLoadingStatus(): Observable<LoadingType> {
+    return this.loadingSubject
+      .asObservable()
+      .pipe(startWith(LoadingType.STOPPED));
+  }
 
-    ngOnInit(): void {
-    }
+  start(): void {
+    this.loadingSubject.next(LoadingType.LOADING);
+  }
 
-    getLoadingStatus() {
-        return this.loadingSubject
-            .asObservable()
-            .pipe(startWith(LoadingType.STOPPED));
-    }
-
-    start() {
-        return this.loadingSubject.next(LoadingType.LOADING)
-    }
-
-    stop() {
-        return this.loadingSubject.next(LoadingType.STOPPED)
-    }
-
-
+  stop(): void {
+    this.loadingSubject.next(LoadingType.STOPPED);
+  }
 }

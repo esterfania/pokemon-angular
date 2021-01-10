@@ -9,12 +9,11 @@ describe('PokemonDetailComponent', () => {
   let component: PokemonDetailComponent;
   let fixture: ComponentFixture<PokemonDetailComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ PokemonDetailComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [PokemonDetailComponent],
+    });
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PokemonDetailComponent);
