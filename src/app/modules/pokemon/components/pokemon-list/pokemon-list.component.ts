@@ -1,11 +1,8 @@
-import { tap } from 'rxjs/operators';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscriber, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {Subscription } from 'rxjs';
 
 import { Pokemon } from '../../models/pokemon.model';
 import { PokemonService } from '../../services/pokemon.service';
-import { PokemonImageService } from '../../services/pokemon-image.service';
 
 @Component({
   selector: 'app-pokemon-list',

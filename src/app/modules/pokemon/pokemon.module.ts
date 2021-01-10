@@ -8,7 +8,7 @@ import { PokemonApisComponent } from './components/pokemon-apis/pokemon-apis.com
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
 import { SharedModule } from '../../shared/shared.module';
-import { FilterByName } from './components/pokemon-list/pipe/filter-by-name';
+import { FilterByName } from './pipe/filter-by-name';
 
 @NgModule({
   declarations: [
