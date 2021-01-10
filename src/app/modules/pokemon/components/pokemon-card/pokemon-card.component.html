@@ -9,7 +9,7 @@
   >
     <a [routerLink]="[pokemon.id]">
       <header class="img-container">
-        <img [src]="pokemon.image" [alt]="pokemon.name" />
+        <img [src]="pokemon.image" [title]="pokemon.name" [alt]="pokemon.name" />
       </header>
       <div class="info">
         <span class="number">#{{ pokemon.id }}</span>
