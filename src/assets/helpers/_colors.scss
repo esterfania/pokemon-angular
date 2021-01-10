@@ -5,16 +5,16 @@ $error: red;
 $warning: #f8b330;
 $info: #00b0ed;
 
-$green: lighten(rgb(68, 117, 68), 40%);
-$red: lighten(red, 30%);
-$blue: lighten(blue, 30%);
+$green: lighten(rgb(68, 117, 68), 45%);
+$red: lighten(rgb(218, 14, 14), 40%);
+$blue: lighten(blue, 45%);
 $white: darken(white, 20%);
-$brown: lighten(#836947, 30%);
+$brown: lighten(#836947, 40%);
 $yellow: lighten(rgb(236, 236, 63), 20%);
 $purple: lighten(rgb(68, 44, 68), 60%);
 $pink: #edbad9;
 $gray: lighten(#686565, 30%);
-$black: rgb(63, 62, 62);
+$black: rgba(63, 62, 62, 0.205);
 
 // $fire: #fddfdf;
 // $grass: #defde0;

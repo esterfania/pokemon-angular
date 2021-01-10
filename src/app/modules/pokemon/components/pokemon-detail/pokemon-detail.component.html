@@ -4,13 +4,12 @@
   class="detail-content"
 >
   <header>
-    <h3>{{ pokemon.name }}</h3>
+    <h5 class="title">{{ pokemon.name }}</h5>
   </header>
   <div class="image">
     <img [src]="pokemon.image" title="Default version." />
   </div>
   <div class="detail-description">
-    <h5 class="title">{{ pokemon.name }}</h5>
     <h6 class="title">Abilities</h6>
     <ul>
       <li *ngFor="let abilitie of pokemon.abilities">
