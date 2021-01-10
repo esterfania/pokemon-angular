@@ -1,8 +1,11 @@
-<div
+<section
   [class]="pokemon.color"
   *ngIf="pokemon$ | async as pokemon"
   class="detail-content"
 >
+  <header>
+    <h3>{{ pokemon.name }}</h3>
+  </header>
   <div class="image">
     <img [src]="pokemon.image" title="Default version." />
   </div>
@@ -17,4 +20,4 @@
     <p>Experience: {{ pokemon.base_experience }}</p>
     <p>Weight: {{ pokemon.weight }}</p>
   </div>
-</div>
+</section>
