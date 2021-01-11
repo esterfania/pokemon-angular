@@ -3,6 +3,8 @@ import { Pokemon } from './../../models/pokemon.model';
 import { Component, Input, TemplateRef } from '@angular/core';
 
 import { PokemonImageService } from '../../services/pokemon-image.service';
+import { PokemonService } from '../../services/pokemon.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-pokemon-card',
   templateUrl: './pokemon-card.component.html',
@@ -12,7 +14,11 @@ export class PokemonCardComponent {
   @Input() pokemon!: Pokemon;
   typeEnum = TypesEnum;
   color = new Color();
-  constructor(private pokemonImageService: PokemonImageService) {}
+  constructor(
+    private pokemonImageService: PokemonImageService,
+    private router: Router,
+    private pokemonService: PokemonService
+  ) {}
 
   getImageUrl(id: number): string {
     return this.pokemonImageService.getPokeImageUrl(id);
@@ -37,5 +43,9 @@ export class PokemonCardComponent {
       'box-shadow': '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
     };
     return style;
+  }
+  redirectToDetails(pokemon: Pokemon) {
+    this.pokemonService.setCurrentPokemon(pokemon);
+    this.router.navigate(['', pokemon.id]);
   }
 }

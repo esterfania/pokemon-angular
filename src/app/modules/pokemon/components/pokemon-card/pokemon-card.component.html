@@ -7,9 +7,13 @@
     class="pokemon"
     [ngStyle]="setPokemonCardColor(pokemon.type_1, pokemon.type_2)"
   >
-    <a [routerLink]="[pokemon.id]">
+    <a (click)="redirectToDetails(pokemon)">
       <header class="img-container">
-        <img [src]="pokemon.image" [title]="pokemon.name" [alt]="pokemon.name" />
+        <img
+          [src]="pokemon.image"
+          [title]="pokemon.name"
+          [alt]="pokemon.name"
+        />
       </header>
       <div class="info">
         <span class="number">#{{ pokemon.id }}</span>

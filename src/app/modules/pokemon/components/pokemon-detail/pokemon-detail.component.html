@@ -1,5 +1,5 @@
 <section
-  [class]="pokemon.color"
+  [class]="color[pokemonDetails?.color]"
   *ngIf="pokemon$ | async as pokemon"
   class="detail"
 >

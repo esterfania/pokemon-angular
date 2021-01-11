@@ -52,4 +52,11 @@ export class PokemonService {
     pokemon.name = capitalize(pokemon.name);
     return pokemon;
   }
+  setCurrentPokemon(pokemon: Pokemon): void {
+    localStorage.setItem('pokemon', JSON.stringify(pokemon));
+  }
+  getCurrentPokemon(pokemonId: number): Pokemon | null {
+    const pokemon = JSON.parse(localStorage.getItem('pokemon')) as Pokemon;
+    return pokemon.id === pokemonId ? pokemon : null;
+  }
 }

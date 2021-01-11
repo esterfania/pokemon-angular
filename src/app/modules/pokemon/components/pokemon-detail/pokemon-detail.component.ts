@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Color } from '../../enums/color.enum';
 
 import { Pokemon } from '../../models/pokemon.model';
 import { PokemonService } from '../../services/pokemon.service';
-import { PokemonImageService } from '../../services/pokemon-image.service';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -15,6 +14,8 @@ import { tap } from 'rxjs/operators';
 export class PokemonDetailComponent implements OnInit {
   pokemonId!: number;
   pokemon$!: Observable<Pokemon>;
+  pokemonDetails: Pokemon;
+  color = new Color();
   constructor(
     private activatedRoute: ActivatedRoute,
     private pokemonService: PokemonService
@@ -24,6 +25,9 @@ export class PokemonDetailComponent implements OnInit {
     this.pokemonId = this.activatedRoute.snapshot.params.id;
     if (this.pokemonId) {
       this.pokemon$ = this.pokemonService.getPokemonWithId(this.pokemonId);
+      this.pokemonDetails = this.pokemonService.getCurrentPokemon(
+        Number(this.pokemonId)
+      );
     }
   }
 }
