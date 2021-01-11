@@ -11,27 +11,29 @@
       <span>{{ pokemon.id }} </span>
       <strong class="title">{{ pokemon.name }}</strong>
     </header>
-    <div class="detail__info">
-      <strong>Experience: </strong> {{ pokemon.base_experience }}
-    </div>
-    <div class="detail__info">
-      <strong>Weight: </strong> {{ pokemon.weight }}
-    </div>
-    <div>
-      <span class="ability" *ngFor="let stat of pokemon.stats">
-        <strong> {{ stat.stat.name }}: </strong>
-        <span>{{ stat.base_stat }}</span>
-      </span>
-    </div>
-    <div class="detail__info">
-      <strong>Type: </strong>
-      <span *ngFor="let type of pokemon.types"> {{ type.type.name }}</span>
-    </div>
-    <div>
-      <strong>Abilities: </strong>
-      <span class="ability" *ngFor="let abilitie of pokemon.abilities">
-        {{ abilitie.ability.name }}
-      </span>
-    </div>
+    <section class="detail__aditional">
+      <div class="detail__info">
+        <strong>Experience: </strong> {{ pokemon.base_experience }}
+      </div>
+      <div class="detail__info">
+        <strong>Weight: </strong> {{ pokemon.weight }}
+      </div>
+      <div>
+        <span class="ability" *ngFor="let stat of pokemon.stats">
+          <strong> {{ stat.stat.name }}: </strong>
+          <span>{{ stat.base_stat }}</span>
+        </span>
+      </div>
+      <div class="detail__info">
+        <strong>Type: </strong>
+        <span *ngFor="let type of pokemon.types"> {{ type.type.name }}</span>
+      </div>
+      <div>
+        <strong>Abilities: </strong>
+        <span class="ability" *ngFor="let abilitie of pokemon.abilities">
+          {{ abilitie.ability.name }}
+        </span>
+      </div>
+    </section>
   </div>
 </section>

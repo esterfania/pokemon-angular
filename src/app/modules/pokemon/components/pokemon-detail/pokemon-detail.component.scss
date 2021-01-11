@@ -3,9 +3,10 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  min-height: 100%;
-  height: auto;
-  align-items: flex-end;
+  align-items: center;
+  height: 93%;
+  overflow-x: hidden;
+  width: 100%;
   background-image: repeating-linear-gradient(
       120deg,
       rgba(255, 255, 255, 0.6),
@@ -43,12 +44,21 @@
     margin-bottom: 14px;
     letter-spacing: 0.25ch;
   }
+  &__image {
+    width: 50%;
+    img {
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+  }
   &__info {
     display: inline-block;
     margin: 1rem 1rem 14px 0px;
   }
   &__description {
-    max-width: 40%;
+    width: 50%;
     font-size: 14px;
     font-weight: 300;
     padding: 1rem 2rem;
@@ -60,6 +70,27 @@
     }
     &:last-child::after {
       content: "";
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    &__image {
+      width: 75%;
+      img {
+        width: 100%;
+      }
+    }
+    &__description {
+      width: 100%;
+      font-size: 18px;
+      font-weight: 300;
+    }
+    &__header {
+      text-align: center;
+    }
+    &__aditional {
+      margin-left: 25px;
     }
   }
 }
