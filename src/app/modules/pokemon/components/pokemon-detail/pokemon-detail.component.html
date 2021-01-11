@@ -1,22 +1,31 @@
 <section
   [class]="pokemon.color"
   *ngIf="pokemon$ | async as pokemon"
-  class="detail-content"
+  class="detail"
 >
-  <header>
-    <h5 class="title">{{ pokemon.name }}</h5>
-  </header>
-  <div class="image">
-    <img [src]="pokemon.image" title="Default version." />
+  <div class="detail__image">
+    <img [src]="pokemon.image" [title]="pokemon.name" [alt]="pokemon.name" />
   </div>
-  <div class="detail-description">
-    <h6 class="title">Abilities</h6>
-    <ul>
-      <li *ngFor="let abilitie of pokemon.abilities">
+  <div class="detail__description">
+    <header class="detail__header">
+      <span>{{ pokemon.id }} </span>
+      <strong class="title">{{ pokemon.name }}</strong>
+    </header>
+    <div class="detail__info">
+      <strong>Experience: </strong> {{ pokemon.base_experience }}
+    </div>
+    <div class="detail__info">
+      <strong>Weight: </strong> {{ pokemon.weight }}
+    </div>
+    <div class="detail__info">
+      <strong>Type: </strong>
+      <span *ngFor="let type of pokemon.types"> {{ type.type.name }}</span>
+    </div>
+    <div>
+      <strong>Abilities: </strong>
+      <span class="ability" *ngFor="let abilitie of pokemon.abilities">
         {{ abilitie.ability.name }}
-      </li>
-    </ul>
-    <p>Experience: {{ pokemon.base_experience }}</p>
-    <p>Weight: {{ pokemon.weight }}</p>
+      </span>
+    </div>
   </div>
 </section>

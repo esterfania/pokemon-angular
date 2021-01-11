@@ -24,4 +24,5 @@ export interface Pokemon {
   weight: number;
   image: string;
   color: string | null;
+  types: any[];
 }

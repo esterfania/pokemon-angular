@@ -1,11 +1,65 @@
 @import "../../../../../assets/helpers/colors";
-.detail-content {
+.detail {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.image {
-  img {
-    width: 500px;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 100%;
+  height: auto;
+  align-items: flex-end;
+  background-image: repeating-linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6) 1px,
+      transparent 1px,
+      transparent 30px,
+      rgba(255, 255, 255, 0.3) 30px,
+      rgba(255, 255, 255, 0.3) 31px,
+      transparent 31px,
+      transparent 60px
+    ),
+    repeating-linear-gradient(
+      60deg,
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6) 1px,
+      transparent 1px,
+      transparent 30px,
+      rgba(255, 255, 255, 0.3) 30px,
+      rgba(255, 255, 255, 0.3) 31px,
+      transparent 31px,
+      transparent 60px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3) 1px,
+      transparent 1px,
+      transparent 30px
+    );
+  background-size: 70px 120px;
+
+  &__header {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    letter-spacing: 0.25ch;
+  }
+  &__info {
+    display: inline-block;
+    margin: 1rem 1rem 14px 0px;
+  }
+  &__description {
+    max-width: 40%;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 1rem 2rem;
+  }
+  .ability {
+    text-transform: capitalize;
+    &::after {
+      content: " | ";
+    }
+    &:last-child::after {
+      content: "";
+    }
   }
 }
