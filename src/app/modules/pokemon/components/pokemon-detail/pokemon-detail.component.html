@@ -3,37 +3,45 @@
   *ngIf="pokemon$ | async as pokemon"
   class="detail"
 >
-  <div class="detail__image">
-    <img [src]="pokemon.image" [title]="pokemon.name" [alt]="pokemon.name" />
-  </div>
-  <div class="detail__description">
-    <header class="detail__header">
-      <span>{{ pokemon.id }} </span>
-      <strong class="title">{{ pokemon.name }}</strong>
-    </header>
-    <section class="detail__aditional">
-      <div class="detail__info">
-        <strong>Experience: </strong> {{ pokemon.base_experience }}
-      </div>
-      <div class="detail__info">
-        <strong>Weight: </strong> {{ pokemon.weight }}
-      </div>
-      <div>
-        <span class="ability" *ngFor="let stat of pokemon.stats">
-          <strong> {{ stat.stat.name }}: </strong>
-          <span>{{ stat.base_stat }}</span>
-        </span>
-      </div>
-      <div class="detail__info">
-        <strong>Type: </strong>
-        <span *ngFor="let type of pokemon.types"> {{ type.type.name }}</span>
-      </div>
-      <div>
-        <strong>Abilities: </strong>
-        <span class="ability" *ngFor="let abilitie of pokemon.abilities">
-          {{ abilitie.ability.name }}
-        </span>
-      </div>
-    </section>
+  <div class="detail__content background-glass">
+    <div class="detail__description">
+      <header class="detail__header">
+        <img
+          class="detail__image"
+          [src]="pokemon.image"
+          [title]="pokemon.name"
+          [alt]="pokemon.name"
+        />
+        <span>{{ pokemon.id }} </span>
+        <strong class="detail__title">{{ pokemon.name }}</strong>
+      </header>
+      <section class="detail__aditional">
+        <div class="detail__info">
+          <strong>Experience: </strong> {{ pokemon.base_experience }}
+        </div>
+        <div class="detail__info">
+          <strong>Weight: </strong> {{ pokemon.weight }}
+        </div>
+        <div>
+          <span class="ability" *ngFor="let stat of pokemon.stats">
+            <strong> {{ stat.stat.name }}: </strong>
+            <span>{{ stat.base_stat }}</span>
+          </span>
+        </div>
+        <div class="detail__info">
+          <strong>Type: </strong>
+          <span *ngFor="let type of pokemon.types"> {{ type.type.name }}</span>
+        </div>
+        <div>
+          <strong>Abilities: </strong>
+          <span class="ability" *ngFor="let abilitie of pokemon.abilities">
+            {{ abilitie.ability.name }}
+          </span>
+        </div>
+      </section>
+    </div>
+    <div class="detail__chart">
+      <div echarts [options]="options" class="demo-chart"></div>
+    </div>
   </div>
 </section>

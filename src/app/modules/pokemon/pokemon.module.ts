@@ -9,7 +9,8 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
 import { SharedModule } from '../../shared/shared.module';
 import { FilterByName } from './pipe/filter-by-name';
-
+import * as echarts from 'echarts';
+import { NgxEchartsModule } from 'ngx-echarts';
 @NgModule({
   declarations: [
     PokemonCardComponent,
@@ -18,7 +19,15 @@ import { FilterByName } from './pipe/filter-by-name';
     PokemonListComponent,
     FilterByName,
   ],
-  imports: [CommonModule, HttpClientModule, SharedModule, RouterModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    SharedModule,
+    RouterModule,
+    NgxEchartsModule.forRoot({
+      echarts,
+    }),
+  ],
   exports: [PokemonListComponent, PokemonApisComponent, PokemonDetailComponent],
 })
 export class PokemonModule {}
