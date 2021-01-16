@@ -17,7 +17,7 @@
       </header>
       <div class="info">
         <span class="number">#{{ pokemon.id }}</span>
-        <h3 class="name">{{ pokemon.name }}</h3>
+        <h3 class="name" [title]="pokemon.name">{{ pokemon.name }}</h3>
         <div class="wrapper">
           <div class="icon" [ngStyle]="setPokemonTypeColor(pokemon.type_1)">
             <img
