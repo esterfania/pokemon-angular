@@ -1,0 +1,4 @@
+@mixin linear-gradient-right($bg, $color1, $color2) {
+  background: $bg;
+  background: linear-gradient(to right, $color1, $color2);
+}
