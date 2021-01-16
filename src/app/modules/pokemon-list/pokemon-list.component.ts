@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import {Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { Pokemon } from '../../shared/models/pokemon.model';
 import { PokemonService } from '../pokemon/services/pokemon.service';

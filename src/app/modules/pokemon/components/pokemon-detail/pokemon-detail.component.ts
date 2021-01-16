@@ -7,11 +7,13 @@ import { Color } from '../../../../shared/enums/color.enum';
 
 import { Pokemon } from '../../../../shared/models/pokemon.model';
 import { PokemonService } from '../../services/pokemon.service';
+import { fade } from '../../../../shared/animations/fade';
 
 @Component({
   selector: 'app-pokemon-detail',
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.scss'],
+  animations: [fade],
 })
 export class PokemonDetailComponent implements OnInit {
   pokemonId!: number;

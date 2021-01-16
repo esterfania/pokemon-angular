@@ -9,7 +9,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { PokemonRoutingModule } from './pokemon-routing.module';
 @NgModule({
   declarations: [
-    PokemonDetailComponent,
+    PokemonDetailComponent
   ],
   imports: [
     CommonModule,

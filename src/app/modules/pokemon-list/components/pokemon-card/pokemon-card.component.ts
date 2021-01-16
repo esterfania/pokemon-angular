@@ -5,10 +5,12 @@ import { Component, Input } from '@angular/core';
 import { PokemonImageService } from '../../../pokemon/services/pokemon-image.service';
 import { PokemonService } from '../../../pokemon/services/pokemon.service';
 import { Router } from '@angular/router';
+import { fade } from 'src/app/shared/animations/fade';
 @Component({
   selector: 'app-pokemon-card',
   templateUrl: './pokemon-card.component.html',
   styleUrls: ['./pokemon-card.component.scss'],
+  animations: [fade],
 })
 export class PokemonCardComponent {
   @Input() pokemon!: Pokemon;

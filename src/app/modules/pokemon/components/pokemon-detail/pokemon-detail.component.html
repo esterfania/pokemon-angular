@@ -2,6 +2,7 @@
   [class]="color[pokemonDetails?.color]"
   *ngIf="pokemon$ | async as pokemon"
   class="detail"
+  @fade
 >
   <div class="detail__content background-glass">
     <div class="detail__description">
