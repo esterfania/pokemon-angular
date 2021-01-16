@@ -1,5 +1,3 @@
-@import "../../../../../assets/helpers/colors";
-
 h1 {
   letter-spacing: 3px;
 }
@@ -42,6 +40,10 @@ h1 {
   .name {
     margin: 15px 0 10px;
     letter-spacing: 1px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 110px;
   }
   .number {
     background-color: rgba(0, 0, 0, 0.1);

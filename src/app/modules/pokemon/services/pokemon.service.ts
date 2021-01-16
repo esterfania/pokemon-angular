@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map, pluck } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
-import { Pokemon } from '../models';
+import { Pokemon } from '../../../shared/models';
 import { PokemonImageService } from './pokemon-image.service';
 import { capitalize } from '../../../shared/helpers/capitalize';
 

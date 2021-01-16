@@ -1,9 +1,9 @@
-import { TypesEnum, Color } from '../../enums/color.enum';
-import { Pokemon } from './../../models/pokemon.model';
-import { Component, Input, TemplateRef } from '@angular/core';
+import { TypesEnum, Color } from '../../../../shared/enums/color.enum';
+import { Pokemon } from '../../../../shared/models/pokemon.model';
+import { Component, Input } from '@angular/core';
 
-import { PokemonImageService } from '../../services/pokemon-image.service';
-import { PokemonService } from '../../services/pokemon.service';
+import { PokemonImageService } from '../../../pokemon/services/pokemon-image.service';
+import { PokemonService } from '../../../pokemon/services/pokemon.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-pokemon-card',
@@ -44,7 +44,7 @@ export class PokemonCardComponent {
     };
     return style;
   }
-  redirectToDetails(pokemon: Pokemon) {
+  redirectToDetails(pokemon: Pokemon): void {
     this.pokemonService.setCurrentPokemon(pokemon);
     this.router.navigate(['', pokemon.id]);
   }

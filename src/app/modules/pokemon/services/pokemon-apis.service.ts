@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
-import { Api } from '../models';
+import { Api } from '../../../shared/models';
 const { pokeApi } = environment;
 
 @Injectable({

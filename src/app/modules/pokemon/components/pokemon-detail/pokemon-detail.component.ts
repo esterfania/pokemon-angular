@@ -3,9 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { capitalize } from 'src/app/shared/helpers/capitalize';
-import { Color } from '../../enums/color.enum';
+import { Color } from '../../../../shared/enums/color.enum';
 
-import { Pokemon } from '../../models/pokemon.model';
+import { Pokemon } from '../../../../shared/models/pokemon.model';
 import { PokemonService } from '../../services/pokemon.service';
 
 @Component({
@@ -37,7 +37,7 @@ export class PokemonDetailComponent implements OnInit {
     }
   }
 
-  private getStats(item) {
+  private getStats(item): void {
     this.setOptions(
       item.stats.map((i) => {
         return {
@@ -48,7 +48,7 @@ export class PokemonDetailComponent implements OnInit {
     );
   }
 
-  private setOptions(data) {
+  private setOptions(data): void {
     this.options = {
       width: '100%',
       color: ['#FF5959', '#F5AC78', '#FAE078', '#9DB7F5', '#A7DB8D', '#FA92B2'],
@@ -82,7 +82,7 @@ export class PokemonDetailComponent implements OnInit {
           type: 'pie',
           radius: [30, 110],
           roseType: 'area',
-          data: data,
+          data,
         },
       ],
     };
