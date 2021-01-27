@@ -8,7 +8,7 @@ Este projeto foi gerado em Angular 11.0.1.
 
 ![screen-capture](https://user-images.githubusercontent.com/35200622/104393107-682d9980-5522-11eb-83f8-66d8a41a6615.gif)
 
-Você consegue acessá-lo no endereço: https://rotomdex.netlify.app/
+Você consegue acessá-lo no endereço: https://pokemon-angular.vercel.app/
 
 # Instruções para instalação do projeto
 
