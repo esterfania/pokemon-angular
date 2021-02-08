@@ -1,43 +1,49 @@
-h1 {
-  letter-spacing: 3px;
-}
-
-.poke-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: space-between;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 1200px;
-  margin: 2px 2px;
-  border-radius: 32px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  &:hover {
-    box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2);
-    transform: scale(1.1);
+.card {
+  h1 {
+    letter-spacing: 3px;
   }
-  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
-}
 
-.pokemon {
-  border-radius: 20px;
-  margin: 10px;
-  padding: 20px;
-  text-align: center;
-  a {
-    text-decoration: none;
+  &__container {
     display: flex;
-    flex-direction: column;
-    color: black;
+    flex-wrap: wrap;
+    align-items: space-between;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    margin: 2px 2px;
+    border-radius: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+    &:hover {
+      box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2);
+      transform: scale(1.1);
+    }
   }
-  .img-container {
+
+  &__pokemon {
+    border-radius: 20px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    a {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      color: black;
+    }
+  }
+  &__img-container {
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 50%;
     width: 120px;
     height: 120px;
     text-align: center;
+    img {
+      margin-top: 20px;
+      max-width: 90%;
+    }
   }
-  .name {
+  &__name {
     margin: 15px 0 10px;
     letter-spacing: 1px;
     text-overflow: ellipsis;
@@ -46,33 +52,29 @@ h1 {
     height: 20px;
     max-width: 110px;
   }
-  .number {
+  &__number {
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     font-size: 0.8em;
     padding: 5px 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
-  .info {
+  &__info {
     margin-top: 20px;
   }
-  .img-container img {
-    margin-top: 20px;
-    max-width: 90%;
+  &__icon {
+    border-radius: 100%;
+    height: 35px;
+    width: 35px;
+    margin: auto;
+    transition: 200ms all;
+    img {
+      height: 60%;
+      width: 60%;
+      margin: 20%;
+    }
   }
-}
-.icon {
-  border-radius: 100%;
-  height: 35px;
-  width: 35px;
-  margin: auto;
-  transition: 200ms all;
-  img {
-    height: 60%;
-    width: 60%;
-    margin: 20%;
+  &__wrapper {
+    display: flex;
   }
-}
-.wrapper {
-  display: flex;
 }
