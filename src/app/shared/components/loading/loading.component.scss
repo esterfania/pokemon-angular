@@ -1,42 +1,43 @@
-.stopped {
-  display: none;
-}
+.loader {
+  &--stopped {
+    display: none;
+  }
 
-.loading {
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  background: linear-gradient(to bottom, rgb(254, 0, 1) 50%, white 50%);
-  border-radius: 50%;
-  border: 5px solid black;
-  animation: spin 1s linear infinite;
-  left: 0;
-  right: 0;
-  bottom: 30vh;
-}
+  &--loading {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background: linear-gradient(to bottom, rgb(254, 0, 1) 50%, white 50%);
+    border-radius: 50%;
+    border: 5px solid black;
+    animation: spin 1s linear infinite;
+    left: 0;
+    right: 0;
+    bottom: 30vh;
 
-.loading::before {
-  content: "";
-  position: absolute;
-  height: 5px;
-  width: 100%;
-  background: black;
-  top: 23px;
-  transform: translatey(-50%);
-}
+    &::before {
+      content: "";
+      position: absolute;
+      height: 5px;
+      width: 100%;
+      background: black;
+      top: 23px;
+      transform: translatey(-50%);
+    }
 
-.loading::after {
-  content: "";
-  position: absolute;
-  height: 20px;
-  width: 20px;
-  border-radius: 100%;
-  background: white;
-  top: 5px;
-  left: 5px;
-  transform: translate(50%, 50%);
-  box-shadow: inset 0 0 0 5px black, inset 0 0 0 7px white,
-    inset 0 0 0 9px black;
+    &::after {
+      content: "";
+      position: absolute;
+      height: 10px;
+      width: 10px;
+      border-radius: 100%;
+      background: white;
+      top: 13px;
+      left: 16px;
+      box-shadow: inset 0 0 0 2px white, inset 0 0 0 4px black;
+      border: 5px solid black;
+    }
+  }
 }
 
 /* Spin Animation */

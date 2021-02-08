@@ -2,7 +2,7 @@
 
 Work in progress
 
-Este projeto foi gerado em Angular 11.0.1, API REST em JSON Server.
+Este projeto foi gerado em Angular 11.0.1.
 
 ![screen-capture-_1_ (2)](https://user-images.githubusercontent.com/35200622/104394495-8052e800-5525-11eb-8fa7-2bc591260546.gif)
 
